@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coffee Selection | Bean Boutique</title>
+  <link rel="stylesheet" href="../CSS/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mixitup@3/dist/mixitup.min.js"></script>
+  <script src="../js/coffee-selection.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="coffee-selection">
+
+<nav>
+  <div class="hamburger" id="hamburger">&#9776;</div>
+  <ul id="navLinks">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../html/coffee-selection.html" class="active">Coffee Selection</a></li>
+    <li><a href="../html/brewing-equipment.html">Brewing Equipment</a></li>
+    <li><a href="../html/events-workshops.html">Events & Workshops</a></li>
+    <li><a href="../html/special-offers.html">Special Offers</a></li>
+    <li><a href="../html/shopping-cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+  </ul>
+</nav>
+
+  <section id="filters">
+    <button class="filter" data-filter="all">All</button>
+    <button class="filter" data-filter=".blend">Blends</button>
+    <button class="filter" data-filter=".single">Single-Origin</button>
+  </section>
+
+  <header class="page-header">
+    <h1>Bean Boutique</h1>
+    <p>Explore our unique blends and single-origin coffees</p>
+    <input type="text" id="searchInput" placeholder="Search coffees..." />
+  </header>
+
+  <main id="coffeeCatalogue" class="mix-container">
+    
+    <div class="coffee-card mix blend" data-name="Sunrise Bloom">
+      <figure><img src="../images/sbb.png" alt="Sunrise Bloom" /></figure>
+      <h3>Sunrise Bloom</h3>
+      <p>Floral Ethiopian blend with citrus top notes.</p>
+      <ul class="notes"><li>Floral</li><li>Citrus</li><li>Honey finish</li></ul>
+      <p class="method">Recommended: Chemex or Pour-over</p>
+      <p class="price">$12.00</p>
+      <button onclick="addToCart('Sunrise Bloom', 12.00)">Add to Cart</button>
+    </div>
+
+    <div class="coffee-card mix single" data-name="Mountain Mist">
+      <figure><img src="../images/mom.png" alt="Mountain Mist" /></figure>
+      <h3>Mountain Mist</h3>
+      <p>Colombian single-origin with chocolate and berry notes.</p>
+      <ul class="notes"><li>Chocolate</li><li>Berry</li><li>Nutty finish</li></ul>
+      <p class="method">Recommended: French Press or Espresso</p>
+      <p class="price">$13.50</p>
+      <button onclick="addToCart('Mountain Mist', 13.50)">Add to Cart</button>
+    </div>
+
+    <div class="coffee-card mix blend" data-name="Velvet Roast">
+      <figure><img src="../images/vr.png" alt="Velvet Roast" /></figure>
+      <h3>Velvet Roast</h3>
+      <p>Rich blend with caramel and toasted almond notes.</p>
+      <ul class="notes"><li>Caramel</li><li>Toasted Almond</li><li>Low Acidity</li></ul>
+      <p class="method">Recommended: Drip or Moka Pot</p>
+      <p class="price">$11.75</p>
+      <button onclick="addToCart('Velvet Roast', 11.75)">Add to Cart</button>
+    </div>
+
+    <div class="coffee-card mix single" data-name="Golden Highlands">
+      <figure><img src="../images/gh.png" alt="Golden Highlands" /></figure>
+      <h3>Golden Highlands</h3>
+      <p>Guatemalan single-origin with bright acidity and floral aroma.</p>
+      <ul class="notes"><li>Bright Acidity</li><li>Floral</li><li>Clean Finish</li></ul>
+      <p class="method">Recommended: Pour-over or AeroPress</p>
+      <p class="price">$14.00</p>
+      <button onclick="addToCart('Golden Highlands', 14.00)">Add to Cart</button>
+    </div>
+
+    <div class="coffee-card mix blend" data-name="Amber Trail">
+      <figure><img src="../images/at.png" alt="Amber Trail" /></figure>
+      <h3>Amber Trail</h3>
+      <p>Balanced blend with hints of spice and dried fruit.</p>
+      <ul class="notes"><li>Spice</li><li>Dried Fruit</li><li>Medium Body</li></ul>
+      <p class="method">Recommended: French Press or Cold Brew</p>
+      <p class="price">$12.50</p>
+      <button onclick="addToCart('Amber Trail', 12.50)">Add to Cart</button>
+    </div>
+
+    <div class="coffee-card mix single" data-name="Rainforest Reserve">
+      <figure><img src="../images/rr.png" alt="Rainforest Reserve" /></figure>
+      <h3>Rainforest Reserve</h3>
+      <p>Indonesian single-origin with earthy depth and herbal finish.</p>
+      <ul class="notes"><li>Earthy</li><li>Herbal</li><li>Full Body</li></ul>
+      <p class="method">Recommended: Espresso or Moka Pot</p>
+      <p class="price">$13.25</p>
+      <button onclick="addToCart('Rainforest Reserve', 13.25)">Add to Cart</button>
+    </div>
+
+    <div class="coffee-card mix blend" data-name="Rosewood Blend">
+      <figure><img src="../images/rb.png" alt="Rosewood Blend" /></figure>
+      <h3>Rosewood Blend</h3>
+      <p>Elegant blend with rose petal aroma and silky texture.</p>
+      <ul class="notes"><li>Rose Petal</li><li>Silky Texture</li><li>Light Roast</li></ul>
+      <p class="method">Recommended: Pour-over or Siphon</p>
+      <p class="price">$12.80</p>
+      <button onclick="addToCart('Rosewood Blend', 12.80)">Add to Cart</button>
+    </div>
+
+    <div class="coffee-card mix single" data-name="Crimson Peak">
+      <figure><img src="../images/cpp.png" alt="Crimson Peak" /></figure>
+      <h3>Crimson Peak</h3>
+      <p>Kenyan single-origin with bold acidity and berry punch.</p>
+      <ul class="notes"><li>Bold Acidity</li><li>Berry</li><li>Wine-like Finish</li></ul>
+      <p class="method">Recommended: Cold Brew or French Press</p>
+      <p class="price">$14.25</p>
+      <button onclick="addToCart('Crimson Peak', 14.25)">Add to Cart</button>
+    </div>
+
+    <div class="coffee-card mix blend" data-name="Twilight Roast">
+      <figure><img src="../images/tr.png" alt="Twilight Roast" /></figure>
+      <h3>Twilight Roast</h3>
+      <p>Dark roast blend with smoky depth and cocoa undertones.</p>
+      <ul class="notes"><li>Smoky</li><li>Cocoa</li><li>Bold Finish</li></ul>
+      <p class="method">Recommended: Espresso or Drip</p>
+      <p class="price">$11.90</p>
+      <button onclick="addToCart('Twilight Roast', 11.90)">Add to Cart</button>
+    </div>
+
+    <div class="coffee-card mix single" data-name="Cedar Valley">
+      <figure><img src="../images/cv.png" alt="Cedar Valley" /></figure>
+      <h3>Cedar Valley</h3>
+      <p>Brazilian single-origin with nutty sweetness and smooth body.</p>
+      <ul class="notes"><li>Nutty</li><li>Sweet</li><li>Balanced</li></ul>
+      <p class="method">Recommended: Moka Pot or French Press</p>
+      <p class="price">$13.00</p>
+      <button onclick="addToCart('Cedar Valley', 13.00)">Add to Cart</button>
+    </div>
+  </main>
+
+  <form id="secureForm" method="POST" action="/submit">
+    <input type="email" name="email" required placeholder="Subscribe for updates" />
+        <button type="submit">Subscribe</button>
+  </form>
+
+  <section class="cart">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p class="total">Total: $<span id="total">0.00</span></p>
+  </section>
+<script>
+  document.getElementById('hamburger')?.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('show');
+  });
+</script>
+<footer class="site-footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Bean Boutique</p>
+    <p>Curated with love & caffeine • Est. 2023</p>
+    <p><a href="mailto:hello@beanboutique.com">hello@beanboutique.com</a></p>
+
+    <div class="footer-widgets">
+      <div class="widget">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://instagram.com/beanboutique" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://facebook.com/beanboutique" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/beanboutique" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://tiktok.com/@beanboutique" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://youtube.com/beanboutique" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://linkedin.com/company/beanboutique" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://pinterest.com/beanboutique" target="_blank" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+
+      <div class="widget">
+        <h4>Newsletter</h4>
+        <form id="newsletter-form">
+          <input type="email" placeholder="Your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="widget">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../html/coffee-selection.html">Coffee</a></li>
+          <li><a href="../html/special-offers.html">Offers</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  document.getElementById('newsletter-form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thanks for subscribing to Bean Boutique!');
+    this.reset();
+  });
+</script>
+</body>
+</html>

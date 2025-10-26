@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events & Workshops | Bean Boutique</title>
+  <link rel="stylesheet" href="../CSS/styles.css" />
+  <script src="../js/events-workshops.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="coffee-selection">
+  <nav>
+  <div class="hamburger" id="hamburger">&#9776;</div>
+  <ul id="navLinks">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../html/coffee-selection.html">Coffee Selection</a></li>
+    <li><a href="../html/brewing-equipment.html">Brewing Equipment</a></li>
+    <li><a href="../html/events-workshops.html" class="active">Events & Workshops</a></li>
+    <li><a href="../html/special-offers.html">Special Offers</a></li>
+    <li><a href="../html/shopping-cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+  </ul>
+</nav>
+
+  <main>
+    <section class="page-header">
+      <h1>Events & Workshops</h1>
+      <p>Join us for tastings, brewing tutorials, and coffee artistry</p>
+    </section>
+
+<div id="search-bar-placeholder"></div>
+<script>
+  fetch('/components/search-bar.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('search-bar-placeholder').innerHTML = html;
+    });
+</script>
+<link rel="stylesheet" href="/components/search-bar.css" />
+    <section id="eventList" class="mix-container">
+      <div class="coffee-card event-card">
+        <figure><img src="../images/lw.png" alt="Latte Art Workshop" /></figure>
+        <h3>Latte Art Workshop</h3>
+        <p>Learn the secrets of silky microfoam and elegant pours.</p>
+        <p><strong>Date:</strong> Nov 5, 2025</p>
+        <p><strong>Time:</strong> 2:00 PM – 4:00 PM</p>
+        <button onclick="rsvp('Latte Art Workshop')">RSVP</button>
+      </div>
+
+      <div class="coffee-card event-card">
+        <figure><img src="../images/ccs.png" alt="Coffee Cupping Session" /></figure>
+        <h3>Coffee Cupping Session</h3>
+        <p>Explore flavor profiles and tasting techniques with our baristas.</p>
+        <p><strong>Date:</strong> Nov 12, 2025</p>
+        <p><strong>Time:</strong> 5:30 PM – 7:00 PM</p>
+        <button onclick="rsvp('Coffee Cupping Session')">RSVP</button>
+      </div>
+
+      <div class="coffee-card event-card">
+        <figure><img src="../images/bmw.png" alt="Brewmaster Class" /></figure>
+        <h3>Brewmaster Class</h3>
+        <p>Master manual brewing methods from pour-over to siphon.</p>
+        <p><strong>Date:</strong> Nov 18, 2025</p>
+        <p><strong>Time:</strong> 10:00 AM – 1:00 PM</p>
+        <button onclick="rsvp('Brewmaster Class')">RSVP</button>
+      </div>
+    </section>
+<form id="secureForm" method="POST" action="/submit">
+  <p>Please fill out the registration form below to sign up for event updates:</p>
+  <input type="text" name="firstName" required placeholder="First Name" />
+  <input type="text" name="lastName" required placeholder="Last Name" />
+  <input type="email" name="email" required placeholder="Email Address" />
+  <button type="submit">Subscribe</button>
+</form>
+  
+</script>
+<footer class="site-footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Bean Boutique</p>
+    <p>Curated with love & caffeine • Est. 2023</p>
+    <p><a href="mailto:hello@beanboutique.com">hello@beanboutique.com</a></p>
+
+    <div class="footer-widgets">
+      <div class="widget">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://instagram.com/beanboutique" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://facebook.com/beanboutique" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/beanboutique" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://tiktok.com/@beanboutique" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://youtube.com/beanboutique" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://linkedin.com/company/beanboutique" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://pinterest.com/beanboutique" target="_blank" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+
+      <div class="widget">
+        <h4>Newsletter</h4>
+        <form id="newsletter-form">
+          <input type="email" placeholder="Your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="widget">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../html/coffee-selection.html">Coffee</a></li>
+          <li><a href="../html/special-offers.html">Offers</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="search-bar-container">
+  <form class="search-form" action="/search-results.html" method="GET">
+    <input type="text" name="query" placeholder="Search..." required />
+    <button type="submit">🔍</button>
+  </form>
+</div>
+<script>
+  document.getElementById('newsletter-form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thanks for subscribing to Bean Boutique!');
+    this.reset();
+  });
+</script>
+</body>
+</html>

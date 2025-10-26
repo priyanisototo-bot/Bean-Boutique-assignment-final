@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bean Boutique | Special Offers & Subscriptions</title>
+  <link rel="stylesheet" href="../CSS/styles.css" />
+  <script src="../js/special-offers.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="special-offers">
+<nav class="main-nav">
+ <header>
+  <div class="logo">Bean Boutique</div>
+ <nav>
+  <div class="hamburger" id="hamburger">&#9776;</div>
+  <ul id="navLinks">
+    <li><a href="../home.html">Home</a></li>
+    <li><a href="../html/coffee-selection.html">Coffee Selection</a></li>
+    <li><a href="../html/brewing-equipment.html">Brewing Equipment</a></li>
+    <li><a href="../html/events-workshops.html">Events & Workshops</a></li>
+    <li><a href="../html/special-offers.html" class="active">Special Offers</a></li>
+    <li><a href="../html/shopping-cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+  </ul>
+</nav>
+
+</header>
+
+  <main>
+    <section class="section">
+      <h2>Special Offers & Subscriptions</h2>
+      <p>Enjoy our promotions and subscribe to get your favorite coffee delivered regularly.</p>
+
+<div id="search-bar-placeholder"></div>
+<script>
+  fetch('/components/search-bar.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('search-bar-placeholder').innerHTML = html;
+    });
+</script>
+<link rel="stylesheet" href="/components/search-bar.css" />
+      <div class="coffee-grid">
+        <div class="coffee-card">
+          <img src="../images/cs.jfif" alt="Monthly Coffee Subscription" />
+          <h3>Monthly Coffee Subscription</h3>
+          <p>Receive 3 unique blends delivered to your door every month.</p>
+          <button class="btn" data-plan="Monthly">Subscribe</button>
+        </div>
+
+        <div class="coffee-card">
+          <img src="../images/w.jfif" alt="Weekly Coffee Subscription" />
+          <h3>Weekly Coffee Subscription</h3>
+          <p>Freshly roasted beans delivered every week for your morning fix.</p>
+          <button class="btn" data-plan="Weekly">Subscribe</button>
+        </div>
+
+        <div class="coffee-card">
+          <img src="../images/sp.jfif" alt="Special Promotional Offer" />
+          <h3>Special Promo</h3>
+          <p>Get 20% off your first order of our signature blends!</p>
+          <button class="btn" data-plan="Promo">Claim Offer</button>
+        </div>
+      </div>
+
+      <form id="secureForm">
+        <h3>Secure Subscription Form</h3>
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+
+        <label for="level">Subscription Level:</label>
+        <select id="level" required>
+          <option value="">Select</option>
+          <option value="Monthly">Monthly</option>
+          <option value="Weekly">Weekly</option>
+          <option value="Promo">Promo</option>
+        </select>
+
+        <button type="submit">Subscribe Securely</button>
+      </form>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <p id="modalMessage"></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Bean Boutique | Designed with love & caffeine.</p>
+  </footer>
+  <script>
+  document.getElementById('hamburger')?.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('show');
+  });
+</script>
+<footer class="site-footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Bean Boutique</p>
+    <p>Curated with love & caffeine • Est. 2023</p>
+    <p><a href="mailto:hello@beanboutique.com">hello@beanboutique.com</a></p>
+
+    <div class="footer-widgets">
+      <div class="widget">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://instagram.com/beanboutique" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://facebook.com/beanboutique" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/beanboutique" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://tiktok.com/@beanboutique" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://youtube.com/beanboutique" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://linkedin.com/company/beanboutique" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://pinterest.com/beanboutique" target="_blank" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+
+      <div class="widget">
+        <h4>Newsletter</h4>
+        <form id="newsletter-form">
+          <input type="email" placeholder="Your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="widget">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../home.html">Home</a></li>
+          <li><a href="../html/coffee-selection.html">Coffee</a></li>
+          <li><a href="../html/special-offers.html">Offers</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="search-bar-container">
+  <form class="search-form" action="/search-results.html" method="GET">
+    <input type="text" name="query" placeholder="Search..." required />
+    <button type="submit">🔍</button>
+  </form>
+</div>
+<script>
+  document.getElementById('newsletter-form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thanks for subscribing to Bean Boutique!');
+    this.reset();
+  });
+</script>
+</body>
+</html>
