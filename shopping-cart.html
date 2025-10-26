@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping Cart | Bean Boutique</title>
+  <link rel="stylesheet" href="../CSS/styles.css" />
+  <script src="../js/shopping-cart.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="shopping-cart">
+
+ <nav>
+  <div class="hamburger" id="hamburger">&#9776;</div>
+  <ul id="navLinks">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../html/coffee-selection.html">Coffee Selection</a></li>
+    <li><a href="../html/brewing-equipment.html">Brewing Equipment</a></li>
+    <li><a href="../html/events-workshops.html">Events & Workshops</a></li>
+    <li><a href="../html/special-offers.html">Special Offers</a></li>
+    <li><a href="../html/shopping-cart.html" class="active"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+  </ul>
+</nav>
+
+  <main>
+    <div class="cart-container">
+      <section class="cart">
+        <h1>Your Shopping Cart</h1>
+        <table id="cartTable">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Unit Price</th>
+              <th>Quantity</th>
+              <th>Subtotal</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody id="cartBody"></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3" style="text-align: right;"><strong>Total:</strong></td>
+              <td colspan="2">$<span id="total">0.00</span></td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="payment-section">
+          <label for="payment">Choose Payment Method:</label>
+          <select id="payment">
+            <option value="Ecocash">Ecocash</option>
+            <option value="InnBucks">InnBucks</option>
+            <option value="Swipe">Swipe</option>
+            <option value="Cash">Cash</option>
+          </select>
+          <button id="buyBtn">Buy Now</button>
+        </div>
+        <div class="search-bar-container">
+  <form class="search-form" action="/search-results.html" method="GET">
+    <input type="text" name="query" placeholder="Search..." required />
+    <button type="submit">🔍</button>
+  </form>
+</div>
+
+        <p id="confirmation" class="thank-you"></p>
+      </section>
+    </div>
+  </main>
+<script>
+  document.getElementById('hamburger')?.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('show');
+  });
+</script>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Bean Boutique</p>
+    <p>Curated with love & caffeine • Est. 2023</p>
+    <p><a href="mailto:hello@beanboutique.com">hello@beanboutique.com</a></p>
+
+    <div class="footer-widgets">
+      <div class="widget">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://instagram.com/beanboutique" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://facebook.com/beanboutique" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/beanboutique" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://tiktok.com/@beanboutique" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://youtube.com/beanboutique" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://linkedin.com/company/beanboutique" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://pinterest.com/beanboutique" target="_blank" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+
+      <div class="widget">
+        <h4>Newsletter</h4>
+        <form id="newsletter-form">
+          <input type="email" placeholder="Your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="widget">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../html/coffee-selection.html">Coffee</a></li>
+          <li><a href="../html/special-offers.html">Offers</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  document.getElementById('newsletter-form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thanks for subscribing to Bean Boutique!');
+    this.reset();
+  });
+</script>
+</body>
+</html>

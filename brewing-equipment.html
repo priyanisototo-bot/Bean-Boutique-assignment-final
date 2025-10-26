@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brewing Equipment | Bean Boutique</title>
+  <link rel="stylesheet" href="../CSS/styles.css" />
+  <script src="../js/brewing-equipment.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="coffee-selection">
+  <nav>
+  <div class="hamburger" id="hamburger">&#9776;</div>
+  <ul id="navLinks">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../html/coffee-selection.html">Coffee Selection</a></li>
+    <li><a href="../html/brewing-equipment.html" class="active">Brewing Equipment</a></li>
+    <li><a href="../html/events-workshops.html">Events & Workshops</a></li>
+    <li><a href="../html/special-offers.html">Special Offers</a></li>
+    <li><a href="../html/shopping-cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+  </ul>
+</nav>
+
+  <main>
+    <section class="page-header">
+      <h1>Brewing Equipment</h1>
+      <p>Discover tools that elevate your coffee ritual</p>
+      <input type="text" id="searchGear" placeholder="Search equipment..." />
+    </section>
+
+    <section id="filters">
+      <button class="filter" data-filter="all">All</button>
+      <button class="filter" data-filter=".manual">Manual</button>
+      <button class="filter" data-filter=".electric">Electric</button>
+      <button class="filter" data-filter=".accessory">Accessories</button>
+    </section>
+
+  
+<section id="equipmentCatalogue" class="mix-container">
+  <div class="coffee-card mix manual" data-name="French Press">
+    <figure><img src="../images/fp.png" alt="French Press" /></figure>
+    <h3>French Press</h3>
+    <p>Classic manual brewer for bold, full-bodied coffee.</p>
+    <p><strong>Usage Tip:</strong> Use coarse-ground coffee and steep for 4 minutes before pressing slowly.</p>
+    <p class="price">$28.00</p>
+    <button onclick="addToCart('French Press', 28.00)">Add to Cart</button>
+  </div>
+
+  <div class="coffee-card mix electric" data-name="Electric Kettle">
+    <figure><img src="../images/ek.png" alt="Electric Kettle" /></figure>
+    <h3>Electric Kettle</h3>
+    <p>Precision temperature control for perfect brewing.</p>
+    <p><strong>Usage Tip:</strong> Heat water to 92–96°C for optimal extraction in pour-over or French press methods.</p>
+    <p class="price">$45.00</p>
+    <button onclick="addToCart('Electric Kettle', 45.00)">Add to Cart</button>
+  </div>
+
+  <div class="coffee-card mix accessory" data-name="Coffee Scale">
+    <figure><img src="../images/cs.png" alt="Coffee Scale" /></figure>
+    <h3>Coffee Scale</h3>
+    <p>Measure your grounds and water with accuracy.</p>
+    <p><strong>Usage Tip:</strong> Tare your scale before brewing and aim for a 1:16 coffee-to-water ratio.</p>
+    <p class="price">$22.00</p>
+    <button onclick="addToCart('Coffee Scale', 22.00)">Add to Cart</button>
+  </div>
+
+  <div class="coffee-card mix manual" data-name="Pour-over Set">
+    <figure><img src="../images/pos.png" alt="Pour-over Set" /></figure>
+    <h3>Pour-over Set</h3>
+    <p>Elegant set for clean, aromatic brews.</p>
+    <p><strong>Usage Tip:</strong> Rinse the filter first, pour in slow spirals, and let bloom for 30 seconds before full brew.</p>
+    <p class="price">$35.00</p>
+    <button onclick="addToCart('Pour-over Set', 35.00)">Add to Cart</button>
+  </div>
+
+  <div class="coffee-card mix electric" data-name="Grinder Pro">
+    <figure><img src="../images/gp.png" alt="Grinder Pro" /></figure>
+    <h3>Grinder Pro</h3>
+    <p>Electric burr grinder for consistent grind size.</p>
+    <p><strong>Usage Tip:</strong> Adjust grind size based on brew method—coarse for French press, medium for drip, fine for espresso.</p>
+    <p class="price">$60.00</p>
+    <button onclick="addToCart('Grinder Pro', 60.00)">Add to Cart</button>
+  </div>
+</section>
+
+
+    <form id="secureForm" method="POST" action="/submit">
+      <input type="email" name="email" required placeholder="Subscribe for gear updates" />
+      <button type="submit">Subscribe</button>
+    </form>
+
+   
+    <section class="cart">
+      <h2>Your Cart</h2>
+      <ul id="cart-items"></ul>
+      <p class="total">Total: $<span id="total">0.00</span></p>
+    </section>
+  </main>
+  <script>
+  document.getElementById('hamburger')?.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('show');
+  });
+</script>
+<footer class="site-footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Bean Boutique</p>
+    <p>Curated with love & caffeine • Est. 2023</p>
+    <p><a href="mailto:hello@beanboutique.com">hello@beanboutique.com</a></p>
+
+    <div class="footer-widgets">
+      <div class="widget">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://instagram.com/beanboutique" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://facebook.com/beanboutique" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/beanboutique" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://tiktok.com/@beanboutique" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://youtube.com/beanboutique" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://linkedin.com/company/beanboutique" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://pinterest.com/beanboutique" target="_blank" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+
+      <div class="widget">
+        <h4>Newsletter</h4>
+        <form id="newsletter-form">
+          <input type="email" placeholder="Your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="widget">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../html/coffee-selection.html">Coffee</a></li>
+          <li><a href="../html/special-offers.html">Offers</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  document.getElementById('newsletter-form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thanks for subscribing to Bean Boutique!');
+    this.reset();
+  });
+</script>
+</body>
+</html>
